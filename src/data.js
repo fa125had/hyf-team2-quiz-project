@@ -14,14 +14,15 @@ export const quizData = {
   // the questions in the quiz
   questions: [
     {
-      text: 'What are the different ways to declare a JS variable?',
+      text: 'Who painted this?',
       answers: {
-        a: 'constant, let, variable',
-        b: 'var, const, let, function',
-        c: 'var, let, const',
+        a: 'Leonardo da Vinci',
+        b: 'Vincent van Gogh',
+        c: 'Edvard Munch',
       },
-      correct: 'c',
+      correct: 'a',
       selected: null,
+      image: './public/assets/mona_lisa.jpg',
       links: [
         {
           text: 'javascript.info',
@@ -34,15 +35,15 @@ export const quizData = {
       ],
     },
     {
-      text: 'What does `typeof` do?',
+      text: 'Who painted this?',
       answers: {
-        a: 'changes the type of a primitive value',
-        b: 'returns a string describing the type of a value',
-        c: 'determines if a value is primitive',
-        d: 'can tell the difference between arrays and objects',
+        a: 'Leonardo da Vinci',
+        b: 'Vincent van Gogh',
+        c: 'Edvard Munch',
       },
-      correct: 'b',
+      correct: 'a',
       selected: null,
+      image: './public/assets/last_supper.jpg',
       links: [
         {
           text: 'javascript.info',
@@ -55,6 +56,181 @@ export const quizData = {
         },
       ],
     },
-    // Add more questions here
+    {
+      text: 'Who painted this?',
+      answers: {
+        a: 'Leonardo da Vinci',
+        b: 'Vincent van Gogh',
+        c: 'Edvard Munch',
+      },
+      correct: 'b',
+      selected: null,
+      image: './public/assets/starry_night.jpg',
+      links: [
+        {
+          text: 'javascript.info',
+          href: 'https://javascript.info/types#type-typeof',
+        },
+        {
+          text: 'MDN',
+          href:
+            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+        },
+      ],
+    },
+    {
+      text: 'Who painted this?',
+      answers: {
+        a: 'Leonardo da Vinci',
+        b: 'Vincent van Gogh',
+        c: 'Edvard Munch',
+      },
+      correct: 'c',
+      selected: null,
+      image: './public/assets/scream.jpg',
+      links: [
+        {
+          text: 'javascript.info',
+          href: 'https://javascript.info/types#type-typeof',
+        },
+        {
+          text: 'MDN',
+          href:
+            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+        },
+      ],
+    },
+    {
+      text: 'Who painted this?',
+      answers: {
+        a: 'Gustav Klimt',
+        b: 'Vincent van Gogh',
+        c: 'Pablo Picasso',
+      },
+      correct: 'c',
+      selected: null,
+      image: './public/assets/guernica.jpg',
+      links: [
+        {
+          text: 'javascript.info',
+          href: 'https://javascript.info/types#type-typeof',
+        },
+        {
+          text: 'MDN',
+          href:
+            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+        },
+      ],
+    },
+    {
+      text: 'Who painted this?',
+      answers: {
+        a: 'Gustav Klimt',
+        b: 'Johannes Vermeer',
+        c: 'Pablo Picasso',
+      },
+      correct: 'a',
+      selected: null,
+      image: './public/assets/kiss.jpg',
+      links: [
+        {
+          text: 'javascript.info',
+          href: 'https://javascript.info/types#type-typeof',
+        },
+        {
+          text: 'MDN',
+          href:
+            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+        },
+      ],
+    },
+    {
+      text: 'Who painted this?',
+      answers: {
+        a: 'Gustav Klimt',
+        b: 'Johannes Vermeer',
+        c: 'Pablo Picasso',
+      },
+      correct: 'b',
+      selected: null,
+      image: './public/assets/girl_with_a_pearl_earring.jpg',
+      links: [
+        {
+          text: 'javascript.info',
+          href: 'https://javascript.info/types#type-typeof',
+        },
+        {
+          text: 'MDN',
+          href:
+            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+        },
+      ],
+    },
+    {
+      text: 'Who painted this?',
+      answers: {
+        a: 'Diego Velázquez',
+        b: 'Sandro Botticelli',
+        c: 'Pablo Picasso',
+      },
+      correct: 'b',
+      selected: null,
+      image: './public/assets/birth_of_venus.jpg',
+      links: [
+        {
+          text: 'javascript.info',
+          href: 'https://javascript.info/types#type-typeof',
+        },
+        {
+          text: 'MDN',
+          href:
+            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+        },
+      ],
+    },
+    {
+      text: 'Who painted this?',
+      answers: {
+        a: 'Diego Velázquez',
+        b: 'Sandro Botticelli',
+        c: 'Michelangelo',
+      },
+      correct: 'a',
+      selected: null,
+      image: './public/assets/las_meninas.jpg',
+      links: [
+        {
+          text: 'javascript.info',
+          href: 'https://javascript.info/types#type-typeof',
+        },
+        {
+          text: 'MDN',
+          href:
+            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+        },
+      ],
+    },
+    {
+      text: 'Who painted this?',
+      answers: {
+        a: 'Diego Velázquez',
+        b: 'Sandro Botticelli',
+        c: 'Michelangelo',
+      },
+      correct: 'c',
+      selected: null,
+      image: './public/assets/creation_of_adam.jpg',
+      links: [
+        {
+          text: 'javascript.info',
+          href: 'https://javascript.info/types#type-typeof',
+        },
+        {
+          text: 'MDN',
+          href:
+            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+        },
+      ],
+    },
   ],
 };
