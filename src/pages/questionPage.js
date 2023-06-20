@@ -15,6 +15,14 @@ export const initQuestionPage = () => {
 
   const questionElement = createQuestionElement(currentQuestion.text);
 
+  // add images
+  const currentImage = quizData.questions[quizData.currentQuestionIndex].image;
+
+  const imageElement = document.createElement('img');
+  imageElement.setAttribute('src', currentImage);
+
+  questionElement.appendChild(imageElement);
+
   userInterface.appendChild(questionElement);
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
