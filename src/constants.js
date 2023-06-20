@@ -6,6 +6,7 @@
 */
 
 export const USER_INTERFACE_ID = 'user-interface';
+export const WELCOME_PAGE_ELEMENT = 'welcome-page-element'
 export const START_QUIZ_BUTTON_ID = 'start-quiz-button';
 export const WELCOME_TITLE_ID = 'welcome-title'
 export const WELCOME_PAGE_PARAGRAPH_ID = 'welcome-page-paragraph'
