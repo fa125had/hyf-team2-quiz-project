@@ -1,6 +1,7 @@
 import { USER_INTERFACE_ID, START_QUIZ_BUTTON_ID } from '../constants.js';
 import { createWelcomeElement } from '../views/welcomeView.js';
 import { initQuestionPage } from './questionPage.js';
+import { createWelcomePageCover } from '../views/welcomeView.js';
 
 export const initWelcomePage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -8,6 +9,9 @@ export const initWelcomePage = () => {
 
   const welcomeElement = createWelcomeElement();
   userInterface.appendChild(welcomeElement);
+
+  const welcomeCover = createWelcomePageCover();
+  document.body.appendChild(welcomeCover);
 
   document
     .getElementById(START_QUIZ_BUTTON_ID)
