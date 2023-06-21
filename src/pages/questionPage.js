@@ -10,11 +10,13 @@ import { quizData } from '../data.js';
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
-  const questionElement = createQuestionElement(currentQuestion.text);
-
+  const questionElement = createQuestionElement(
+    currentQuestion.text,
+    currentQuestion.correct
+  );
+  questionElement.id = 'question-element';
   // add images
   const currentImage = quizData.questions[quizData.currentQuestionIndex].image;
 
@@ -30,6 +32,26 @@ export const initQuestionPage = () => {
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
+
+    answerElement.addEventListener('click', () => {
+      // Reset the timer
+      const currentQuestionElement = document.getElementById(
+        'question-element'
+      );
+      clearInterval(currentQuestionElement.intervalID);
+      const buttonColor = document.getElementById(key);
+      if (key == currentQuestion.correct) {
+        buttonColor.style.backgroundColor = 'green';
+      } else {
+        buttonColor.style.backgroundColor = 'red';
+        const correctAnswer = document.getElementById(currentQuestion.correct);
+        correctAnswer.style.backgroundColor = 'green';
+      }
+
+      for (let item of answersListElement.children) {
+        item.style.pointerEvents = 'none';
+      }
+    });
   }
 
   document
@@ -38,7 +60,10 @@ export const initQuestionPage = () => {
 };
 
 const nextQuestion = () => {
-  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  // Reset the timer
+  const currentQuestionElement = document.getElementById('question-element');
+  clearInterval(currentQuestionElement.intervalID);
 
+  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   initQuestionPage();
 };
