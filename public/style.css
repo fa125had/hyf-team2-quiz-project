@@ -45,7 +45,7 @@ ul {
 }
 
 #welcome-page-cover {
-  background-image: url(http://www.essentialvermeer.com/jquery-routines/home-page-slider/slider-images/close-to-vermeer.jpg);
+  background-image: url(./assets/welcome-cover.jpg);
   position: absolute;
   top: 0;
   height: 450px;
