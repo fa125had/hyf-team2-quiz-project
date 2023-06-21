@@ -34,19 +34,18 @@ export const initQuestionPage = () => {
 
     answerElement.addEventListener('click', () => {
       const buttonColor = document.getElementById(key);
-      if(key == currentQuestion.correct){
+      if (key == currentQuestion.correct) {
         buttonColor.style.backgroundColor = 'green';
-      }
-      else{ 
+      } else {
         buttonColor.style.backgroundColor = 'red';
         const correctAnswer = document.getElementById(currentQuestion.correct);
         correctAnswer.style.backgroundColor = 'green';
-      };
-      
-      for(let item of answersListElement.children){
+      }
+
+      for (let item of answersListElement.children) {
         item.style.pointerEvents = 'none';
-      };
-    })
+      }
+    });
   }
 
   document
