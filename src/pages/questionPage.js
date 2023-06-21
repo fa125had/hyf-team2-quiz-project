@@ -6,6 +6,7 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { doc } from 'prettier';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -30,6 +31,21 @@ export const initQuestionPage = () => {
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
+
+    answerElement.addEventListener('click', () => {
+      const buttonColor = document.getElementById(key);
+      if (key == currentQuestion.correct) {
+        buttonColor.style.backgroundColor = 'green';
+      } else {
+        buttonColor.style.backgroundColor = 'red';
+        const correctAnswer = document.getElementById(currentQuestion.correct);
+        correctAnswer.style.backgroundColor = 'green';
+      }
+
+      for (let item of answersListElement.children) {
+        item.style.pointerEvents = 'none';
+      }
+    });
   }
 
   document
