@@ -6,6 +6,7 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { doc } from 'prettier';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -32,7 +33,7 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
 
     answerElement.addEventListener('click', () => {
-      const buttonColor = document.getElementById(`${key}`);
+      const buttonColor = document.getElementById(key);
       if(key == currentQuestion.correct){
         buttonColor.style.backgroundColor = 'green';
       }
