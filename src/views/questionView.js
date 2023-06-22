@@ -17,7 +17,7 @@ export const createQuestionElement = (question, correctAnswer) => {
     <ul id="${ANSWERS_LIST_ID}">
     </ul>
     <div>
-      <span id='timer'>${timer}</span>
+      <span id='timer'>${TIMER_ID}</span>
     </div>
     <button id="${NEXT_QUESTION_BUTTON_ID}">
       Next question
