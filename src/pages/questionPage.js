@@ -2,10 +2,13 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
+  POINTS_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+
+export let points = 0;
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -42,6 +45,8 @@ export const initQuestionPage = () => {
       const buttonColor = document.getElementById(key);
       if (key == currentQuestion.correct) {
         buttonColor.style.backgroundColor = 'green';
+        points++;
+        document.getElementById(POINTS_ID).textContent = points;
       } else {
         buttonColor.style.backgroundColor = 'red';
         const correctAnswer = document.getElementById(currentQuestion.correct);
@@ -63,7 +68,6 @@ const nextQuestion = () => {
   // Reset the timer
   const currentQuestionElement = document.getElementById('question-element');
   clearInterval(currentQuestionElement.intervalID);
-
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   initQuestionPage();
 };
