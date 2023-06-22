@@ -2,6 +2,7 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
+  SKIP_BUTTON_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
@@ -40,7 +41,7 @@ export const initQuestionPage = () => {
         const correctAnswer = document.getElementById(currentQuestion.correct);
         correctAnswer.style.backgroundColor = 'green';
       }
-
+ 
       for (let item of answersListElement.children) {
         item.style.pointerEvents = 'none';
       }
@@ -50,6 +51,21 @@ export const initQuestionPage = () => {
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
+
+  document
+    .getElementById(SKIP_BUTTON_ID)
+    .addEventListener('click', () => {
+
+    const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+    const correctAnswer = document.getElementById(currentQuestion.correct);
+    correctAnswer.style.backgroundColor = 'green';
+
+    setTimeout(nextQuestion, 2000);
+
+      for (let item of answersListElement.children) {
+        item.style.pointerEvents = 'none';
+      }
+    });  
 };
 
 const nextQuestion = () => {
