@@ -26,9 +26,11 @@ export const initWelcomePage = () => {
     .addEventListener('click', startQuiz);
 };
 
-const getName = () => {
+export const playerName = [];
+
+export const getName = () => {
   const inputValue = document.getElementById(WELCOME_PAGE_INPUT).value;
-  return inputValue;
+  return playerName.push(inputValue);
 };
 
 // Need to do - stop loading if input is empty
