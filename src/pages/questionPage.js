@@ -8,8 +8,13 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { LS } from '../app.js';
 
-export let points = 0;
+export const points = {
+  points: 0,
+};
+
+let alreadyAnswered = false;
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -38,8 +43,18 @@ export const initQuestionPage = () => {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
 
+    const questionButton = document.getElementById(ANSWERS_LIST_ID).children;
+
+    Array.from(questionButton).forEach((button) => {
+      button.addEventListener('click', function () {
+        alreadyAnswered = true;
+        answerSave();
+      });
+    });
+
     answerElement.addEventListener('click', () => {
       // Reset the timer
+
       const currentQuestionElement = document.getElementById(
         'question-element'
       );
@@ -47,8 +62,8 @@ export const initQuestionPage = () => {
       const buttonColor = document.getElementById(key);
       if (key == currentQuestion.correct) {
         buttonColor.style.backgroundColor = 'green';
-        points++;
-        document.getElementById(POINTS_ID).textContent = points;
+        points.points++;
+        document.getElementById(POINTS_ID).textContent = `${points.points}`;
       } else {
         buttonColor.style.backgroundColor = 'red';
         const correctAnswer = document.getElementById(currentQuestion.correct);
@@ -58,23 +73,35 @@ export const initQuestionPage = () => {
       for (let item of answersListElement.children) {
         item.style.pointerEvents = 'none';
       }
+
+      pointsSave();
     });
   }
+
+  document
+    .getElementById(NEXT_QUESTION_BUTTON_ID)
+    .addEventListener('click', function () {
+      alreadyAnswered = false;
+      answerSave();
+    });
 
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
 
   document.getElementById(SKIP_BUTTON_ID).addEventListener('click', () => {
+    alreadyAnswered = 'skip';
+    answerSave();
+
     const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
     const correctAnswer = document.getElementById(currentQuestion.correct);
     correctAnswer.style.backgroundColor = 'green';
-
-    setTimeout(nextQuestion, 2500);
-
     for (let item of answersListElement.children) {
       item.style.pointerEvents = 'none';
     }
+
+    const currentQuestionElement = document.getElementById('question-element');
+    clearInterval(currentQuestionElement.intervalID);
   });
 };
 
@@ -83,5 +110,21 @@ const nextQuestion = () => {
   const currentQuestionElement = document.getElementById('question-element');
   clearInterval(currentQuestionElement.intervalID);
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+
   initQuestionPage();
+  alreadyAnswered = false;
+  positionSave();
 };
+
+export function pointsSave() {
+  LS.setItem('userPoints', JSON.stringify(points.points));
+}
+export function positionSave() {
+  LS.setItem(
+    'userCurrentQuestion',
+    JSON.stringify(quizData.currentQuestionIndex)
+  );
+}
+export function answerSave() {
+  LS.setItem('alreadyAnswered', JSON.stringify(alreadyAnswered));
+}
