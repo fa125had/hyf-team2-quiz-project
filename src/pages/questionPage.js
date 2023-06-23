@@ -75,7 +75,6 @@ export const initQuestionPage = () => {
 
     const currentQuestionElement = document.getElementById('question-element');
     clearInterval(currentQuestionElement.intervalID);
-
   });
 };
 
