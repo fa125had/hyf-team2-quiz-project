@@ -29,7 +29,6 @@ export const createQuestionElement = (question, correctAnswer) => {
     <button id="${NEXT_QUESTION_BUTTON_ID}">
       Next question
     </button>
- 
     <button id="${SKIP_BUTTON_ID}">
       Skip
     </button>
