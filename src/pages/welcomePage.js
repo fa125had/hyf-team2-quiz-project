@@ -15,7 +15,7 @@ export const initWelcomePage = () => {
   userInterface.appendChild(welcomeElement);
 
   const welcomeCover = createWelcomePageCover();
-  document.body.appendChild(welcomeCover);
+  userInterface.appendChild(welcomeCover);
 
   document
     .getElementById(START_QUIZ_BUTTON_ID)
