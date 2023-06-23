@@ -76,19 +76,22 @@ export const initQuestionPage = () => {
       pointsSave();
     });
   }
-  //--------------------------------
+
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', function () {
       alreadyAnswered = false;
       answerSave();
     });
-  //------------------------------------
+
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
 
   document.getElementById(SKIP_BUTTON_ID).addEventListener('click', () => {
+    alreadyAnswered = 'skip';
+    answerSave();
+
     const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
     const correctAnswer = document.getElementById(currentQuestion.correct);
     correctAnswer.style.backgroundColor = 'green';
