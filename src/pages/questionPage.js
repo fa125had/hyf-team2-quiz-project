@@ -95,10 +95,12 @@ export const initQuestionPage = () => {
     const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
     const correctAnswer = document.getElementById(currentQuestion.correct);
     correctAnswer.style.backgroundColor = 'green';
-    setTimeout(nextQuestion, 2500);
     for (let item of answersListElement.children) {
       item.style.pointerEvents = 'none';
     }
+
+    const currentQuestionElement = document.getElementById('question-element');
+    clearInterval(currentQuestionElement.intervalID);
   });
 };
 
