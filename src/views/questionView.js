@@ -31,7 +31,7 @@ export const createQuestionElement = (question, correctAnswer) => {
    `;
 
   const score = document.createElement('p');
-  score.innerHTML = `${playerName[0]}, your score is <span id ="${POINTS_ID}">${points}</span>`;
+  score.innerHTML = `${playerName[0]}, your score is <span id ="${POINTS_ID}">${points.points}</span>`;
   element.appendChild(score);
 
   const intervalID = setInterval(() => {
