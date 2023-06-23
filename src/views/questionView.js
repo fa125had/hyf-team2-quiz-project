@@ -3,6 +3,7 @@ import {
   NEXT_QUESTION_BUTTON_ID,
   TIMER_ID,
   POINTS_ID,
+  SKIP_BUTTON_ID,
 } from '../constants.js';
 import { playerName } from '../pages/welcomePage.js';
 import { points } from '../pages/questionPage.js';
@@ -28,8 +29,11 @@ export const createQuestionElement = (question, correctAnswer) => {
     <button id="${NEXT_QUESTION_BUTTON_ID}">
       Next question
     </button>
-   `;
-
+ 
+    <button id="${SKIP_BUTTON_ID}">
+      Skip
+    </button>
+  `;
   const score = document.createElement('p');
   score.innerHTML = `${playerName[0]}, your score is <span id ="${POINTS_ID}">${points}</span>`;
   element.appendChild(score);
