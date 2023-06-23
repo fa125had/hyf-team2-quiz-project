@@ -2,6 +2,7 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   TIMER_ID,
+  SKIP_BUTTON_ID,
 } from '../constants.js';
 
 /**
@@ -24,6 +25,9 @@ export const createQuestionElement = (question, correctAnswer) => {
     </div>
     <button id="${NEXT_QUESTION_BUTTON_ID}">
       Next question
+    </button>
+    <button id="${SKIP_BUTTON_ID}">
+      Skip
     </button>
   `;
 
