@@ -18,6 +18,7 @@ export const createQuestionElement = (question, correctAnswer) => {
   // Set timer in Second
   let timer = 10;
 
+  console.log(points.points);
   // I use String.raw just to get fancy colors for the HTML in VS Code.
   element.innerHTML = String.raw`
     <div class='question-data'>
@@ -36,7 +37,7 @@ export const createQuestionElement = (question, correctAnswer) => {
         Skip
       </button>
     </div>
-    <p class="user-score">${playerName[0]}, your score: <span id='${POINTS_ID}'>${points}</span></p>
+    <p class="user-score">${playerName[0]}, your score: <span id='${POINTS_ID}'>${points.points}</span></p>
     </div>
   `;
 
