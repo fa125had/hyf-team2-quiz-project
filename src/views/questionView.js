@@ -4,6 +4,7 @@ import {
   TIMER_ID,
   POINTS_ID,
   SKIP_BUTTON_ID,
+  ALERT_IF_ANSWERED,
 } from '../constants.js';
 import { playerName } from '../pages/welcomePage.js';
 import { points } from '../pages/questionPage.js';
@@ -32,10 +33,17 @@ export const createQuestionElement = (question, correctAnswer) => {
     <button id="${SKIP_BUTTON_ID}">
       Skip
     </button>
+    
   `;
   const score = document.createElement('p');
-  score.innerHTML = `${playerName[0]}, your score is <span id ="${POINTS_ID}">${points}</span>`;
+  score.innerHTML = `${playerName[0]}, your score is <span id ="${POINTS_ID}">${points.points}</span>`;
   element.appendChild(score);
+
+  const alertIfAnswered = document.createElement('p');
+  alertIfAnswered.innerHTML = `You already answered this question`;
+  alertIfAnswered.style.display = 'none';
+  alertIfAnswered.id = ALERT_IF_ANSWERED;
+  element.appendChild(alertIfAnswered);
 
   const intervalID = setInterval(() => {
     if (timer === 0) {
