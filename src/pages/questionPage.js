@@ -7,8 +7,13 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { LS } from '../app.js';
 
-export let points = 0;
+export const points = {
+  points: 0,
+};
+
+let alreadyAnswered = false;
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -38,6 +43,7 @@ export const initQuestionPage = () => {
 
     answerElement.addEventListener('click', () => {
       // Reset the timer
+
       const currentQuestionElement = document.getElementById(
         'question-element'
       );
@@ -45,8 +51,8 @@ export const initQuestionPage = () => {
       const buttonColor = document.getElementById(key);
       if (key == currentQuestion.correct) {
         buttonColor.style.backgroundColor = 'green';
-        points++;
-        document.getElementById(POINTS_ID).textContent = points;
+        points.points++;
+        document.getElementById(POINTS_ID).textContent = `${points.points}`;
       } else {
         buttonColor.style.backgroundColor = 'red';
         const correctAnswer = document.getElementById(currentQuestion.correct);
@@ -56,6 +62,11 @@ export const initQuestionPage = () => {
       for (let item of answersListElement.children) {
         item.style.pointerEvents = 'none';
       }
+      //--------------------------
+      alreadyAnswered = true;
+      console.log(alreadyAnswered);
+      //-------------------------------
+      pointsSave();
     });
   }
 
@@ -69,5 +80,22 @@ const nextQuestion = () => {
   const currentQuestionElement = document.getElementById('question-element');
   clearInterval(currentQuestionElement.intervalID);
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+
   initQuestionPage();
+  console.log(points);
+  //--------------------------------
+  alreadyAnswered = false;
+  console.log(alreadyAnswered);
+  //------------------------------------
+  positionSave();
 };
+
+export function pointsSave() {
+  LS.setItem('userPoints', JSON.stringify(points.points));
+}
+export function positionSave() {
+  LS.setItem(
+    'userCurrentQuestion',
+    JSON.stringify(quizData.currentQuestionIndex)
+  );
+}
