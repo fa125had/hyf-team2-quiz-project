@@ -17,3 +17,4 @@ export const NEXT_QUESTION_BUTTON_ID = 'next-question-button';
 export const TIMER_ID = 'timer';
 export const POINTS_ID = 'points';
 export const SKIP_BUTTON_ID = 'skip-button';
+export const ALERT_IF_ANSWERED = 'alert';
