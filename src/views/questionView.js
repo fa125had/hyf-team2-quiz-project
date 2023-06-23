@@ -19,23 +19,25 @@ export const createQuestionElement = (question, correctAnswer) => {
 
   // I use String.raw just to get fancy colors for the HTML in VS Code.
   element.innerHTML = String.raw`
-    <h1>${question}</h1>
-
-    <ul id="${ANSWERS_LIST_ID}">
+    <div class='question-data'>
+    <h1 class='question-header'>${question}</h1>
+    <ul class='answers-container' id="${ANSWERS_LIST_ID}">
     </ul>
-    <div>
+    <div class='timer-container'>
       <span id='${TIMER_ID}'>${timer}</span>
     </div>
-    <button id="${NEXT_QUESTION_BUTTON_ID}">
-      Next question
-    </button>
-    <button id="${SKIP_BUTTON_ID}">
-      Skip
-    </button>
+
+    <div class='navigation'>
+      <button id="${NEXT_QUESTION_BUTTON_ID}">
+        Next question
+      </button>
+      <button id="${SKIP_BUTTON_ID}">
+        Skip
+      </button>
+    </div>
+    <p class="user-score">${playerName[0]}, your score: <span id='${POINTS_ID}'>${points}</span></p>
+    </div>
   `;
-  const score = document.createElement('p');
-  score.innerHTML = `${playerName[0]}, your score is <span id ="${POINTS_ID}">${points}</span>`;
-  element.appendChild(score);
 
   const intervalID = setInterval(() => {
     if (timer === 0) {
