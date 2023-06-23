@@ -58,6 +58,17 @@ const loadApp = () => {
       item.style.pointerEvents = 'none';
     }
   }
+  if (LS.getItem('alreadyAnswered') == '"skip"') {
+    if (LS.getItem('userPoints')) {
+      userPoints = JSON.parse(LS.getItem('userPoints'));
+      points.points = userPoints;
+      document.getElementById(POINTS_ID).textContent = `${points.points}`;
+      const answersListElement = document.getElementById(ANSWERS_LIST_ID);
+      for (let item of answersListElement.children) {
+        item.style.pointerEvents = 'none';
+      }
+    }
+  }
 };
 
 window.addEventListener('load', loadApp);
