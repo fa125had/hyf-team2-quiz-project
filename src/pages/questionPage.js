@@ -42,6 +42,15 @@ export const initQuestionPage = () => {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
 
+    const questionButton = document.getElementById(ANSWERS_LIST_ID).children;
+
+    Array.from(questionButton).forEach((button) => {
+      button.addEventListener('click', function () {
+        alreadyAnswered = true;
+        answerSave();
+      });
+    });
+
     answerElement.addEventListener('click', () => {
       // Reset the timer
 
@@ -63,14 +72,18 @@ export const initQuestionPage = () => {
       for (let item of answersListElement.children) {
         item.style.pointerEvents = 'none';
       }
-      //--------------------------
-      alreadyAnswered = true;
-      console.log(alreadyAnswered);
-      //-------------------------------
+
       pointsSave();
     });
   }
-
+  //--------------------------------
+  document
+    .getElementById(NEXT_QUESTION_BUTTON_ID)
+    .addEventListener('click', function () {
+      alreadyAnswered = false;
+      answerSave();
+    });
+  //------------------------------------
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
@@ -79,9 +92,7 @@ export const initQuestionPage = () => {
     const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
     const correctAnswer = document.getElementById(currentQuestion.correct);
     correctAnswer.style.backgroundColor = 'green';
-
     setTimeout(nextQuestion, 2500);
-
     for (let item of answersListElement.children) {
       item.style.pointerEvents = 'none';
     }
@@ -95,11 +106,7 @@ const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   initQuestionPage();
-  console.log(points);
-  //--------------------------------
   alreadyAnswered = false;
-  console.log(alreadyAnswered);
-  //------------------------------------
   positionSave();
 };
 
@@ -111,4 +118,7 @@ export function positionSave() {
     'userCurrentQuestion',
     JSON.stringify(quizData.currentQuestionIndex)
   );
+}
+export function answerSave() {
+  LS.setItem('alreadyAnswered', JSON.stringify(alreadyAnswered));
 }
