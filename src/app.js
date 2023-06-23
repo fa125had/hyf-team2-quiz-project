@@ -1,6 +1,11 @@
 import { quizData } from './data.js';
 import { initWelcomePage } from './pages/welcomePage.js';
-import { WELCOME_PAGE_INPUT, POINTS_ID, ANSWERS_LIST_ID } from './constants.js';
+import {
+  WELCOME_PAGE_INPUT,
+  POINTS_ID,
+  ANSWERS_LIST_ID,
+  ALERT_IF_ANSWERED,
+} from './constants.js';
 import { initQuestionPage } from './pages/questionPage.js';
 import { playerName } from './pages/welcomePage.js';
 import { points } from './pages/questionPage.js';
@@ -46,6 +51,7 @@ const loadApp = () => {
       userPoints = JSON.parse(LS.getItem('userPoints'));
       points.points = userPoints;
       document.getElementById(POINTS_ID).textContent = `${points.points}`;
+      document.getElementById(ALERT_IF_ANSWERED).style.display = 'block';
     }
     const answersListElement = document.getElementById(ANSWERS_LIST_ID);
     for (let item of answersListElement.children) {
