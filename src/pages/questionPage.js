@@ -2,19 +2,25 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
+  POINTS_ID,
+  SKIP_BUTTON_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 
+export let points = 0;
+
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
-  const questionElement = createQuestionElement(currentQuestion.text);
-
+  const questionElement = createQuestionElement(
+    currentQuestion.text,
+    currentQuestion.correct
+  );
+  questionElement.id = 'question-element';
   // add images
   const currentImage = quizData.questions[quizData.currentQuestionIndex].image;
 
@@ -32,9 +38,16 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
 
     answerElement.addEventListener('click', () => {
+      // Reset the timer
+      const currentQuestionElement = document.getElementById(
+        'question-element'
+      );
+      clearInterval(currentQuestionElement.intervalID);
       const buttonColor = document.getElementById(key);
       if (key == currentQuestion.correct) {
         buttonColor.style.backgroundColor = 'green';
+        points++;
+        document.getElementById(POINTS_ID).textContent = points;
       } else {
         buttonColor.style.backgroundColor = 'red';
         const correctAnswer = document.getElementById(currentQuestion.correct);
@@ -50,10 +63,24 @@ export const initQuestionPage = () => {
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
+
+  document.getElementById(SKIP_BUTTON_ID).addEventListener('click', () => {
+    const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+    const correctAnswer = document.getElementById(currentQuestion.correct);
+    correctAnswer.style.backgroundColor = 'green';
+
+    setTimeout(nextQuestion, 2500);
+
+    for (let item of answersListElement.children) {
+      item.style.pointerEvents = 'none';
+    }
+  });
 };
 
 const nextQuestion = () => {
+  // Reset the timer
+  const currentQuestionElement = document.getElementById('question-element');
+  clearInterval(currentQuestionElement.intervalID);
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-
   initQuestionPage();
 };
