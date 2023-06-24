@@ -20,10 +20,10 @@ export const createWelcomeElement = () => {
   const element = document.createElement('div');
   element.id = `${WELCOME_PAGE_ELEMENT}`;
   element.innerHTML = String.raw`
-    <h1 id="${WELCOME_TITLE_ID}">Welcome</h1>
-    <p id="${WELCOME_PAGE_PARAGRAPH_ID}">Take this quick 10-question quiz to find out ...!</p>
-    <input type="text" id="${WELCOME_PAGE_INPUT}" name="name" required placeholder="Enter your Name">
-    <button id="${START_QUIZ_BUTTON_ID}">start quiz</button>
+    <h1 id="${WELCOME_TITLE_ID}">Test Your Art Knowledge!</h1>
+    <p id="${WELCOME_PAGE_PARAGRAPH_ID}">Welcome to our Quiz App, where you can put your art expertise to the test!<br /><span>Are you up for the challenge?</span></p>
+    <input type="text" id="${WELCOME_PAGE_INPUT}" name="name" required placeholder="Enter Your Name">
+    <button id="${START_QUIZ_BUTTON_ID}">Start Quiz</button>
   `;
   return element;
 };
