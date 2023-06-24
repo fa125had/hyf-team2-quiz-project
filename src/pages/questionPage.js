@@ -7,6 +7,7 @@ import {
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
+import { createScoresPage } from './scoresPage.js';
 import { quizData } from '../data.js';
 import { LS } from '../app.js';
 
@@ -102,13 +103,20 @@ export const initQuestionPage = () => {
     const currentQuestionElement = document.getElementById('question-element');
     clearInterval(currentQuestionElement.intervalID);
   });
+
+  if (quizData.currentQuestionIndex === 9) {
+    createScoresPage();
+  }
 };
 
 const nextQuestion = () => {
   // Reset the timer
   const currentQuestionElement = document.getElementById('question-element');
   clearInterval(currentQuestionElement.intervalID);
-  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+
+  if (quizData.currentQuestionIndex < 9) {
+    quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  }
 
   initQuestionPage();
   alreadyAnswered = false;
