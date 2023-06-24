@@ -47,6 +47,7 @@ export const createQuestionElement = (question, correctAnswer) => {
 
   const intervalID = setInterval(() => {
     if (timer === 0) {
+      document.getElementById(NEXT_QUESTION_BUTTON_ID).disabled = false;
       // Remove the timer from screen
       clearInterval(intervalID);
       document.getElementById('timer').style.display = 'none';
