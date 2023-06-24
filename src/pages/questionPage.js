@@ -15,6 +15,7 @@ export const points = {
 };
 
 let alreadyAnswered = false;
+let isAnswerSelected = false;
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -53,6 +54,8 @@ export const initQuestionPage = () => {
     });
 
     answerElement.addEventListener('click', () => {
+      isAnswerSelected = true;
+      nextQuestionButton.disabled = false;
       // Reset the timer
 
       const currentQuestionElement = document.getElementById(
@@ -78,6 +81,9 @@ export const initQuestionPage = () => {
     });
   }
 
+  const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  nextQuestionButton.disabled = true;
+
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', function () {
@@ -90,6 +96,7 @@ export const initQuestionPage = () => {
     .addEventListener('click', nextQuestion);
 
   document.getElementById(SKIP_BUTTON_ID).addEventListener('click', () => {
+    nextQuestionButton.disabled = false;
     alreadyAnswered = 'skip';
     answerSave();
 
@@ -102,6 +109,15 @@ export const initQuestionPage = () => {
 
     const currentQuestionElement = document.getElementById('question-element');
     clearInterval(currentQuestionElement.intervalID);
+  });
+
+  nextQuestionButton.addEventListener('click', function () {
+    if (!isAnswerSelected) {
+      return;
+    }
+    alreadyAnswered = false;
+    answerSave();
+    nextQuestion();
   });
 };
 
