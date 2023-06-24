@@ -54,7 +54,6 @@ export const initQuestionPage = () => {
 
     answerElement.addEventListener('click', () => {
       // Reset the timer
-
       const currentQuestionElement = document.getElementById(
         'question-element'
       );

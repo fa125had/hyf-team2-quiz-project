@@ -17,9 +17,7 @@ export const createQuestionElement = (question, correctAnswer) => {
   const element = document.createElement('div');
   // Set timer in Second
   let timer = 10;
-
-  console.log(points.points);
-  // I use String.raw just to get fancy colors for the HTML in VS Code.
+  // Question element
   element.innerHTML = String.raw`
     <div class='question-data'>
     <h1 class='question-header'>${question}</h1>
@@ -27,6 +25,9 @@ export const createQuestionElement = (question, correctAnswer) => {
     </ul>
     <div class='timer-container'>
       <span id='${TIMER_ID}'>${timer}</span>
+      <span class='alert-container'>
+        <p id=${ALERT_IF_ANSWERED} style='display: none'>You already answered this question</p>
+      </span>
     </div>
 
     <div class='navigation'>
@@ -41,17 +42,11 @@ export const createQuestionElement = (question, correctAnswer) => {
     </div>
   `;
 
-  const alertIfAnswered = document.createElement('p');
-  alertIfAnswered.innerHTML = `You already answered this question`;
-  alertIfAnswered.style.display = 'none';
-  alertIfAnswered.id = ALERT_IF_ANSWERED;
-  element.appendChild(alertIfAnswered);
-
   const intervalID = setInterval(() => {
     if (timer === 0) {
       // Remove the timer from screen
       clearInterval(intervalID);
-      document.getElementById('timer').style.display = 'none';
+      document.getElementById('timer').style.opacity = 'none';
 
       // Show the correct answer
       const correctAnswerElement = document.getElementById(correctAnswer);
