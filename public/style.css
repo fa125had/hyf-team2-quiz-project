@@ -1,120 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
+:root {
+  font-size: 17px;
+}
+
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
 }
 
 body {
-  background-color: rgba(204, 159, 98);
+  background: url('./assets/beige-watercolor-background-brown-blue-cloud-green-leaves-free-vector.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
-/* .centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+#user-interface {
+  width: 60rem;
+  max-width: 85%;
+  height: 35rem;
+  max-height: 80%;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+}
+#user-interface #welcome-page-element {
+  width: 50%;
+  min-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-inline: 3rem;
   text-align: center;
-} */
-
-.scrollable {
-  height: auto;
-  max-height: 80vh;
-  overflow: auto;
+  overflow: hidden;
+  overflow-y: auto;
 }
-
-ul {
-  list-style: none;
-}
-
-#start-quiz-button {
-  width: 15rem;
-  height: 6rem;
-  border: 1px solid rgb(160, 160, 160);
-  border-radius: 7px;
-  background-color: rgb(229, 207, 176);
+#user-interface #welcome-page-element #welcome-title {
   font-size: 2.5rem;
-  font-weight: bold;
-  color: black;
-  margin: 50px auto 0;
-  box-shadow: 0px 0px 10px 0.1px rgb(114, 114, 114);
+  font-family: 'Carter One', cursive;
 }
-
-#start-quiz-button:hover {
-  box-shadow: 0px 0px 10px 3px rgb(114, 114, 114);
+#user-interface #welcome-page-element #welcome-page-paragraph {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 300;
 }
-
-#welcome-page-cover {
-  background-image: url(./assets/welcome-cover.jpg);
-  position: absolute;
-  top: 0;
-  height: 450px;
+#user-interface #welcome-page-element #welcome-page-paragraph span {
+  font-weight: 700;
+}
+#user-interface #welcome-page-element #name-input {
+  border: none;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 0.75rem;
+  font-family: 'Titillium Web', sans-serif;
+  text-transform: uppercase;
   width: 100%;
+  letter-spacing: 0.1rem;
+  background-color: rgba(183, 131, 58, 0.5);
+}
+#user-interface #welcome-page-element #name-input:focus {
+  outline: none;
+}
+#user-interface #welcome-page-element #start-quiz-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-family: 'Carter One', cursive;
+  font-size: 1.4rem;
+  background-color: rgb(183, 131, 58);
+  color: #fff;
+  border: none;
+}
+#user-interface #welcome-page-element #start-quiz-button:hover {
+  color: rgb(183, 131, 58);
+  background-color: #fff;
+  border: 1px solid rgb(183, 131, 58);
+  cursor: pointer;
+}
+#user-interface #welcome-page-cover {
+  background-image: url(./assets/welcome-cover.jpg);
+  width: 50%;
   opacity: 0.8;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-#welcome-page-element {
-  position: relative;
-  top: 450px;
+#user-interface #question-element {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+#user-interface #question-element .question-data {
+  width: 50%;
+  min-width: 20rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 30px;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-#welcome-title {
-  font-size: 3.5rem;
-  margin: 0 auto;
-}
-
-#welcome-page-paragraph {
-  font-size: 2rem;
-  margin: 0 auto;
-}
-
-#name-input {
-  width: 15rem;
-  height: 5rem;
-  border: 0px solid transparent;
-  border-radius: 7px;
+  justify-content: space-around;
+  align-items: center;
+  padding-inline: 3rem;
   text-align: center;
+  overflow: hidden;
+  overflow-y: auto;
+}
+#user-interface #question-element .question-data .question-header {
+  font-size: 2rem;
+  font-family: 'Carter One', cursive;
+}
+#user-interface #question-element .question-data .answers-container {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+}
+#user-interface
+  #question-element
+  .question-data
+  .answers-container
+  .answer-container
+  .answer-btn {
+  width: 15rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.2rem;
+}
+#user-interface
+  #question-element
+  .question-data
+  .answers-container
+  .answer-container
+  .answer-btn:hover {
+  cursor: pointer;
+  border: 1px solid green;
+}
+#user-interface #question-element .question-data .timer-container {
+  font-family: 'Carter One', cursive;
+  font-size: 2rem;
+}
+#user-interface #question-element .question-data .navigation {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+#user-interface
+  #question-element
+  .question-data
+  .navigation
+  #next-question-button {
+  width: 70%;
+  padding: 0.5rem;
+  font-family: 'Carter One', cursive;
+  font-size: 1.2rem;
+  background-color: rgb(183, 131, 58);
+  color: #fff;
+  border: none;
+}
+#user-interface
+  #question-element
+  .question-data
+  .navigation
+  #next-question-button:hover {
+  color: rgb(183, 131, 58);
+  background-color: #fff;
+  border: 1px solid rgb(183, 131, 58);
+  cursor: pointer;
+}
+#user-interface #question-element .question-data .navigation #skip-button {
+  width: 28%;
+  padding: 0.5rem;
+  font-family: 'Carter One', cursive;
+  font-size: 1.2rem;
+  background-color: rgb(183, 131, 58);
+  color: #fff;
+  border: none;
+}
+#user-interface
+  #question-element
+  .question-data
+  .navigation
+  #skip-button:hover {
+  color: rgb(183, 131, 58);
+  background-color: #fff;
+  border: 1px solid rgb(183, 131, 58);
+  cursor: pointer;
+}
+#user-interface #question-element .question-data .user-score {
+  text-transform: capitalize;
   font-size: 1.5rem;
-  margin: 50px auto 0;
+  font-family: 'Titillium Web', sans-serif;
 }
-
-@media screen and (min-width: 1024px) {
-  #welcome-page-cover {
-    width: 40%;
-    height: 100%;
-    right: 0;
-  }
-
-  #welcome-page-element {
-    max-width: 1200px;
-    margin: 0 auto;
-    top: 40px;
-    gap: 50px;
-  }
-
-  #welcome-title {
-    margin: 0 0 0 15px;
-  }
-
-  #welcome-page-paragraph {
-    width: 500px;
-    margin: 0 0 0 15px;
-  }
-
-  #name-input {
-    margin: 50px 0 0 15px;
-  }
-
-  #start-quiz-button {
-    margin: 50px 0 0 15px;
-  }
+#user-interface #question-element .question-data .user-score span {
+  font-size: 2rem;
+  font-weight: 900;
 }
+#user-interface #question-element .question-image {
+  max-width: 50%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+  object-fit: cover;
+} /*# sourceMappingURL=style.css.map */
