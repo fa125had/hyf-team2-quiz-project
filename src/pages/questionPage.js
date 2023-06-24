@@ -9,7 +9,7 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { createScoresPage } from './scoresPage.js';
 import { quizData } from '../data.js';
-import { LS } from '../app.js';
+import { SS } from '../app.js';
 
 export const points = {
   points: 0,
@@ -124,14 +124,14 @@ const nextQuestion = () => {
 };
 
 export function pointsSave() {
-  LS.setItem('userPoints', JSON.stringify(points.points));
+  SS.setItem('userPoints', points.points);
 }
 export function positionSave() {
-  LS.setItem(
+  SS.setItem(
     'userCurrentQuestion',
     JSON.stringify(quizData.currentQuestionIndex)
   );
 }
 export function answerSave() {
-  LS.setItem('alreadyAnswered', JSON.stringify(alreadyAnswered));
+  SS.setItem('alreadyAnswered', alreadyAnswered);
 }

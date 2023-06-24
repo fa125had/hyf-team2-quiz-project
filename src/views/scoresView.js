@@ -8,6 +8,7 @@ import {
 } from '../constants.js';
 import { playerName } from '../pages/welcomePage.js';
 import { points } from '../pages/questionPage.js';
+import { LS } from '../app.js';
 
 export const createScoresElement = () => {
   const element = document.createElement('div');
@@ -24,8 +25,8 @@ export const scoreTable = () => {
   const element = document.createElement('div');
   element.id = `${SCORE_TABLE}`;
   element.innerHTML = String.raw`
-  <h2>Scores table<h2>
-  <table id"${RESULTS}">
+  <h2>Scores table</h2>
+  <table id="${RESULTS}">
   <tr>
     <td>#</td>
     <td>Name</td>
@@ -37,13 +38,15 @@ export const scoreTable = () => {
   return element;
 };
 
-export const winner = () => {
+export const winner = (i) => {
+  const winnerName = JSON.parse(LS.getItem(i)).name;
+  const winnerScore = JSON.parse(LS.getItem(i)).score;
+
   const element = document.createElement('tr');
   element.innerHTML = String.raw`
-  <td id="">#</td>
-  <td id="">Name</td>
-  <td id="">Score</td>
+  <td>${i}</td>
+  <td>${winnerName}</td>
+  <td>${winnerScore}</td>
   `;
-
   return element;
 };

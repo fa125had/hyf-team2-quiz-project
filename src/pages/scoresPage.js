@@ -1,15 +1,10 @@
-import { quizData } from '../data.js';
-import {
-  SKIP_BUTTON_ID,
-  NEXT_QUESTION_BUTTON_ID,
-  ANSWERS_LIST_ID,
-  USER_INTERFACE_ID,
-  SCORE_TABLE,
-} from '../constants.js';
+import { USER_INTERFACE_ID, RESULTS } from '../constants.js';
 import { createScoresElement } from '../views/scoresView.js';
 import { scoreTable } from '../views/scoresView.js';
 import { winner } from '../views/scoresView.js';
 import { LS } from '../app.js';
+import { SS } from '../app.js';
+import { save } from '../app.js';
 
 export const createScoresPage = () => {
   const buttons = document.querySelectorAll('button');
@@ -22,14 +17,21 @@ export const createScoresPage = () => {
 const initScoresPage = () => {
   createScoresPage();
   const scorePage = createScoresElement();
+  save();
   const questionView = document.getElementById('question-element');
   questionView.style.display = 'none';
 
   document.getElementById(USER_INTERFACE_ID).appendChild(scorePage);
 
-  // const winnersTable = scoreTable();
-  // document.getElementById(USER_INTERFACE_ID).appendChild(winnersTable);
+  const winnersTable = scoreTable();
+  document.getElementById(USER_INTERFACE_ID).appendChild(winnersTable);
 
-  // const winnerItem = winner();
-  // document.getElementById(SCORE_TABLE).appendChild(winnerItem);
+  const tableRow = LS.length;
+  for (let i = 1; i < tableRow + 1; i++) {
+    const winnerItem = winner(i);
+    document.getElementById(RESULTS).appendChild(winnerItem);
+  }
+  const tableSort = document.getElementById(RESULTS);
+
+  SS.clear();
 };
