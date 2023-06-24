@@ -24,11 +24,11 @@ const loadApp = () => {
 
   name.addEventListener('input', function (event) {
     userName = event.target.value;
-    LS.setItem('userName', JSON.stringify(userName));
+    LS.setItem('userName', userName);
   });
 
   if (LS.getItem('userName')) {
-    userName = JSON.parse(LS.getItem('userName'));
+    userName = LS.getItem('userName');
     name.value = userName;
     playerName[0] = userName;
   }
@@ -41,34 +41,35 @@ const loadApp = () => {
 
   if (LS.getItem('alreadyAnswered') === 'false') {
     if (LS.getItem('userPoints')) {
-      userPoints = JSON.parse(LS.getItem('userPoints'));
-      points.points = userPoints;
-      document.getElementById(POINTS_ID).textContent = `${points.points}`;
+      dataSaver();
     }
   }
   if (LS.getItem('alreadyAnswered') === 'true') {
     if (LS.getItem('userPoints')) {
-      userPoints = JSON.parse(LS.getItem('userPoints'));
-      points.points = userPoints;
-      document.getElementById(POINTS_ID).textContent = `${points.points}`;
-      // document.getElementById(ALERT_IF_ANSWERED).style.display = 'block';
+      dataSaver();
+      document.getElementById(ALERT_IF_ANSWERED).style.display = 'block';
     }
-    const answersListElement = document.getElementById(ANSWERS_LIST_ID);
-    for (let item of answersListElement.children) {
-      item.style.pointerEvents = 'none';
-    }
+    buttonDisable();
   }
   if (LS.getItem('alreadyAnswered') == '"skip"') {
     if (LS.getItem('userPoints')) {
-      userPoints = JSON.parse(LS.getItem('userPoints'));
-      points.points = userPoints;
-      document.getElementById(POINTS_ID).textContent = `${points.points}`;
-      const answersListElement = document.getElementById(ANSWERS_LIST_ID);
-      for (let item of answersListElement.children) {
-        item.style.pointerEvents = 'none';
-      }
+      dataSaver();
+      buttonDisable();
     }
   }
 };
 
 window.addEventListener('load', loadApp);
+
+const dataSaver = () => {
+  userPoints = LS.getItem('userPoints');
+  points.points = userPoints;
+  document.getElementById(POINTS_ID).textContent = `${points.points}`;
+};
+
+const buttonDisable = () => {
+  const answersListElement = document.getElementById(ANSWERS_LIST_ID);
+  for (let item of answersListElement.children) {
+    item.style.pointerEvents = 'none';
+  }
+};
