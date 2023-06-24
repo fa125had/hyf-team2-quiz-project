@@ -217,7 +217,7 @@ body {
   }
 }
 
-@media (max-width: 815px) {
+@media only screen and (max-width: 815px) {
   #user-interface {
     width: 60rem;
     max-width: 85%;
@@ -279,7 +279,7 @@ body {
   }
 }
 
-@media (max-width: 650px) {
+@media only screen and (max-width: 650px) {
   #user-interface {
     width: 60rem;
     max-width: 85%;
@@ -340,7 +340,7 @@ body {
   }
 }
 
-@media (max-width: 420px) {
+@media only screen and (max-width: 420px) {
   #user-interface {
     #question-element {
       .question-data {
@@ -373,7 +373,7 @@ body {
   }
 }
 
-@media (max-width: 360px) {
+@media only screen and (max-width: 360px) {
   #user-interface {
     width: 60rem;
     max-width: 98%;
