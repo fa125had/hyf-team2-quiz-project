@@ -27,6 +27,10 @@ export const createQuestionElement = (question, correctAnswer) => {
     </ul>
     <div class='timer-container'>
       <span id='${TIMER_ID}'>${timer}</span>
+      <span class='alert-container'>
+      <p id=${ALERT_IF_ANSWERED} style='display: none'>You already answered this question</p>
+    </span>
+
     </div>
 
     <div class='navigation'>
@@ -40,12 +44,6 @@ export const createQuestionElement = (question, correctAnswer) => {
     <p class="user-score">${playerName[0]}, your score: <span id='${POINTS_ID}'>${points.points}</span></p>
     </div>
   `;
-
-  const alertIfAnswered = document.createElement('p');
-  alertIfAnswered.innerHTML = `You already answered this question`;
-  alertIfAnswered.style.display = 'none';
-  alertIfAnswered.id = ALERT_IF_ANSWERED;
-  element.appendChild(alertIfAnswered);
 
   const intervalID = setInterval(() => {
     if (timer === 0) {
