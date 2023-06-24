@@ -31,6 +31,7 @@ export const initQuestionPage = () => {
 
   const imageElement = document.createElement('img');
   imageElement.setAttribute('src', currentImage);
+  imageElement.classList.add('question-image');
 
   questionElement.appendChild(imageElement);
 
