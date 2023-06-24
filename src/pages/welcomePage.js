@@ -38,8 +38,18 @@ export const getName = () => {
 // Need to do - stop loading if input is empty
 
 const startQuiz = () => {
-  initQuestionPage();
+  const inputValue = document.getElementById(WELCOME_PAGE_INPUT).value;
+  if (inputValue === '') {
+    let alertMessage = document.createElement('div');
+    alertMessage.textContent = 'Please enter your name!';
+    alertMessage.style.color = 'red';
+    document
+      .getElementById(WELCOME_PAGE_INPUT)
+      .insertAdjacentElement('afterend', alertMessage);
+  } else {
+    initQuestionPage();
 
-  pointsSave();
-  positionSave();
+    pointsSave();
+    positionSave();
+  }
 };
