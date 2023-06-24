@@ -24,16 +24,6 @@ export const quizData = {
       correct: 'a',
       selected: null,
       image: './public/assets/mona_lisa.jpg',
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
-        },
-      ],
     },
     {
       text: 'Who painted this?',
@@ -46,17 +36,6 @@ export const quizData = {
       correct: 'a',
       selected: null,
       image: './public/assets/last_supper.jpg',
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
     },
     {
       text: 'Who painted this?',
@@ -69,17 +48,6 @@ export const quizData = {
       correct: 'c',
       selected: null,
       image: './public/assets/starry_night.jpg',
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
     },
     {
       text: 'Who painted this?',
@@ -92,17 +60,6 @@ export const quizData = {
       correct: 'c',
       selected: null,
       image: './public/assets/scream.jpg',
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
     },
     {
       text: 'Who painted this?',
@@ -115,17 +72,6 @@ export const quizData = {
       correct: 'c',
       selected: null,
       image: './public/assets/guernica.jpg',
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
     },
     {
       text: 'Who painted this?',
@@ -138,17 +84,6 @@ export const quizData = {
       correct: 'a',
       selected: null,
       image: './public/assets/kiss.jpg',
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
     },
     {
       text: 'Who painted this?',
@@ -161,17 +96,6 @@ export const quizData = {
       correct: 'b',
       selected: null,
       image: './public/assets/girl_with_a_pearl_earring.jpg',
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
     },
     {
       text: 'Who painted this?',
@@ -184,17 +108,6 @@ export const quizData = {
       correct: 'b',
       selected: null,
       image: './public/assets/birth_of_venus.jpg',
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
     },
     {
       text: 'Who painted this?',
@@ -207,17 +120,6 @@ export const quizData = {
       correct: 'a',
       selected: null,
       image: './public/assets/las_meninas.jpg',
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
     },
     {
       text: 'Who painted this?',
@@ -230,17 +132,6 @@ export const quizData = {
       correct: 'c',
       selected: null,
       image: './public/assets/creation_of_adam.jpg',
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
     },
   ],
 };
