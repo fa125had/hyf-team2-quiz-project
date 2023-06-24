@@ -7,8 +7,9 @@ import {
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
+import { createScoresPage } from './scoresPage.js';
 import { quizData } from '../data.js';
-import { LS } from '../app.js';
+import { SS } from '../app.js';
 
 export const points = {
   points: 0,
@@ -103,13 +104,20 @@ export const initQuestionPage = () => {
     const currentQuestionElement = document.getElementById('question-element');
     clearInterval(currentQuestionElement.intervalID);
   });
+
+  if (quizData.currentQuestionIndex === 9) {
+    createScoresPage();
+  }
 };
 
 const nextQuestion = () => {
   // Reset the timer
   const currentQuestionElement = document.getElementById('question-element');
   clearInterval(currentQuestionElement.intervalID);
-  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+
+  if (quizData.currentQuestionIndex < 9) {
+    quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  }
 
   initQuestionPage();
   alreadyAnswered = false;
@@ -117,14 +125,14 @@ const nextQuestion = () => {
 };
 
 export function pointsSave() {
-  LS.setItem('userPoints', points.points);
+  SS.setItem('userPoints', points.points);
 }
 export function positionSave() {
-  LS.setItem(
+  SS.setItem(
     'userCurrentQuestion',
     JSON.stringify(quizData.currentQuestionIndex)
   );
 }
 export function answerSave() {
-  LS.setItem('alreadyAnswered', alreadyAnswered);
+  SS.setItem('alreadyAnswered', alreadyAnswered);
 }

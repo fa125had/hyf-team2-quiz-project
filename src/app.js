@@ -10,10 +10,19 @@ import { initQuestionPage } from './pages/questionPage.js';
 import { playerName } from './pages/welcomePage.js';
 import { points } from './pages/questionPage.js';
 
+export const SS = sessionStorage;
 export const LS = localStorage;
 export let userName = {};
 export let userPoints = {};
 export let userCurrentQuestion = {};
+
+export const save = () => {
+  const winnersData = {
+    name: SS.getItem('userName'),
+    score: SS.getItem('userPoints'),
+  };
+  LS.setItem(LS.length + 1, JSON.stringify(winnersData));
+};
 
 const loadApp = () => {
   quizData.currentQuestionIndex = 0;
@@ -24,35 +33,35 @@ const loadApp = () => {
 
   name.addEventListener('input', function (event) {
     userName = event.target.value;
-    LS.setItem('userName', userName);
+    SS.setItem('userName', userName);
   });
 
-  if (LS.getItem('userName')) {
-    userName = LS.getItem('userName');
+  if (SS.getItem('userName')) {
+    userName = SS.getItem('userName');
     name.value = userName;
     playerName[0] = userName;
   }
 
-  if (LS.getItem('userCurrentQuestion')) {
-    userCurrentQuestion = JSON.parse(LS.getItem('userCurrentQuestion'));
+  if (SS.getItem('userCurrentQuestion')) {
+    userCurrentQuestion = JSON.parse(SS.getItem('userCurrentQuestion'));
     quizData.currentQuestionIndex = userCurrentQuestion;
     initQuestionPage();
   }
 
-  if (LS.getItem('alreadyAnswered') === 'false') {
-    if (LS.getItem('userPoints')) {
+  if (SS.getItem('alreadyAnswered') === 'false') {
+    if (SS.getItem('userPoints')) {
       dataSaver();
     }
   }
-  if (LS.getItem('alreadyAnswered') === 'true') {
-    if (LS.getItem('userPoints')) {
+  if (SS.getItem('alreadyAnswered') === 'true') {
+    if (SS.getItem('userPoints')) {
       dataSaver();
       document.getElementById(ALERT_IF_ANSWERED).style.display = 'block';
     }
     buttonDisable();
   }
-  if (LS.getItem('alreadyAnswered') == '"skip"') {
-    if (LS.getItem('userPoints')) {
+  if (SS.getItem('alreadyAnswered') == '"skip"') {
+    if (SS.getItem('userPoints')) {
       dataSaver();
       buttonDisable();
     }
@@ -62,7 +71,7 @@ const loadApp = () => {
 window.addEventListener('load', loadApp);
 
 const dataSaver = () => {
-  userPoints = LS.getItem('userPoints');
+  userPoints = SS.getItem('userPoints');
   points.points = userPoints;
   document.getElementById(POINTS_ID).textContent = `${points.points}`;
 };
