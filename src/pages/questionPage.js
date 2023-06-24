@@ -116,7 +116,7 @@ const nextQuestion = () => {
 };
 
 export function pointsSave() {
-  LS.setItem('userPoints', JSON.stringify(points.points));
+  LS.setItem('userPoints', points.points);
 }
 export function positionSave() {
   LS.setItem(
@@ -125,5 +125,5 @@ export function positionSave() {
   );
 }
 export function answerSave() {
-  LS.setItem('alreadyAnswered', JSON.stringify(alreadyAnswered));
+  LS.setItem('alreadyAnswered', alreadyAnswered);
 }
