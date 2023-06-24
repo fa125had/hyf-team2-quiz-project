@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap");
 :root {
   font-size: 17px;
 }
@@ -12,7 +12,7 @@
 }
 
 body {
-  background: url('./assets/beige-watercolor-background-brown-blue-cloud-green-leaves-free-vector.jpg');
+  background: url("./assets/beige-watercolor-background-brown-blue-cloud-green-leaves-free-vector.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -44,10 +44,10 @@ body {
 }
 #user-interface #welcome-page-element #welcome-title {
   font-size: 2.5rem;
-  font-family: 'Carter One', cursive;
+  font-family: "Carter One", cursive;
 }
 #user-interface #welcome-page-element #welcome-page-paragraph {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Titillium Web", sans-serif;
   font-weight: 300;
 }
 #user-interface #welcome-page-element #welcome-page-paragraph span {
@@ -58,7 +58,7 @@ body {
   text-align: center;
   font-size: 1.2rem;
   padding: 0.75rem;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Titillium Web", sans-serif;
   text-transform: uppercase;
   width: 100%;
   letter-spacing: 0.1rem;
@@ -70,7 +70,7 @@ body {
 #user-interface #welcome-page-element #start-quiz-button {
   width: 100%;
   padding: 0.75rem;
-  font-family: 'Carter One', cursive;
+  font-family: "Carter One", cursive;
   font-size: 1.4rem;
   background-color: rgb(183, 131, 58);
   color: #fff;
@@ -94,6 +94,7 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  position: relative;
 }
 #user-interface #question-element .question-data {
   width: 50%;
@@ -109,7 +110,7 @@ body {
 }
 #user-interface #question-element .question-data .question-header {
   font-size: 2rem;
-  font-family: 'Carter One', cursive;
+  font-family: "Carter One", cursive;
 }
 #user-interface #question-element .question-data .answers-container {
   list-style: none;
@@ -119,29 +120,19 @@ body {
   justify-content: space-around;
   align-items: center;
 }
-#user-interface
-  #question-element
-  .question-data
-  .answers-container
-  .answer-container
-  .answer-btn {
+#user-interface #question-element .question-data .answers-container .answer-container .answer-btn {
   width: 15rem;
   padding: 0.5rem 1rem;
   border: none;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Titillium Web", sans-serif;
   font-size: 1.2rem;
 }
-#user-interface
-  #question-element
-  .question-data
-  .answers-container
-  .answer-container
-  .answer-btn:hover {
+#user-interface #question-element .question-data .answers-container .answer-container .answer-btn:hover {
   cursor: pointer;
   border: 1px solid green;
 }
 #user-interface #question-element .question-data .timer-container {
-  font-family: 'Carter One', cursive;
+  font-family: "Carter One", cursive;
   font-size: 2rem;
 }
 #user-interface #question-element .question-data .navigation {
@@ -150,24 +141,16 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-#user-interface
-  #question-element
-  .question-data
-  .navigation
-  #next-question-button {
+#user-interface #question-element .question-data .navigation #next-question-button {
   width: 70%;
   padding: 0.5rem;
-  font-family: 'Carter One', cursive;
+  font-family: "Carter One", cursive;
   font-size: 1.2rem;
   background-color: rgb(183, 131, 58);
   color: #fff;
   border: none;
 }
-#user-interface
-  #question-element
-  .question-data
-  .navigation
-  #next-question-button:hover {
+#user-interface #question-element .question-data .navigation #next-question-button:hover {
   color: rgb(183, 131, 58);
   background-color: #fff;
   border: 1px solid rgb(183, 131, 58);
@@ -176,17 +159,13 @@ body {
 #user-interface #question-element .question-data .navigation #skip-button {
   width: 28%;
   padding: 0.5rem;
-  font-family: 'Carter One', cursive;
+  font-family: "Carter One", cursive;
   font-size: 1.2rem;
   background-color: rgb(183, 131, 58);
   color: #fff;
   border: none;
 }
-#user-interface
-  #question-element
-  .question-data
-  .navigation
-  #skip-button:hover {
+#user-interface #question-element .question-data .navigation #skip-button:hover {
   color: rgb(183, 131, 58);
   background-color: #fff;
   border: 1px solid rgb(183, 131, 58);
@@ -195,7 +174,7 @@ body {
 #user-interface #question-element .question-data .user-score {
   text-transform: capitalize;
   font-size: 1.5rem;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
 #user-interface #question-element .question-data .user-score span {
   font-size: 2rem;
@@ -205,5 +184,14 @@ body {
   max-width: 50%;
   aspect-ratio: 1/1;
   -o-object-fit: cover;
-  object-fit: cover;
-} /*# sourceMappingURL=style.css.map */
+     object-fit: cover;
+}
+#user-interface #question-element #alert {
+  position: absolute;
+  background: #fff;
+  padding: 3rem;
+  left: 25%;
+  top: 40%;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}/*# sourceMappingURL=style.css.map */

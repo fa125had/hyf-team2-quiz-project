@@ -51,7 +51,7 @@ const loadApp = () => {
       userPoints = JSON.parse(LS.getItem('userPoints'));
       points.points = userPoints;
       document.getElementById(POINTS_ID).textContent = `${points.points}`;
-      document.getElementById(ALERT_IF_ANSWERED).style.display = 'block';
+      // document.getElementById(ALERT_IF_ANSWERED).style.display = 'block';
     }
     const answersListElement = document.getElementById(ANSWERS_LIST_ID);
     for (let item of answersListElement.children) {
