@@ -34,7 +34,7 @@ export const createQuestionElement = (question, correctAnswer) => {
         Next question
       </button>
       <button id="${SKIP_BUTTON_ID}">
-        Skip
+        Show Answer
       </button>
     </div>
     <p class="user-score">${playerName[0]}, your score: <span id='${POINTS_ID}'>${points.points}</span></p>
