@@ -208,12 +208,19 @@ body {
   -o-object-fit: cover;
   object-fit: cover;
 }
-#user-interface #question-element .alert-container #alert {
+#user-interface #question-element .alert-container #alert,
+#user-interface #question-element .alert-container #alert-skip {
   text-transform: capitalize;
   color: rgba(225, 119, 13, 0.9);
   font-size: 1.1rem;
   animation: flash;
   animation-duration: 2s;
+}
+#user-interface #score-page {
+  width: 50%;
+}
+#user-interface #score-table {
+  width: 50%;
 }
 
 @media only screen and (max-width: 815px) {

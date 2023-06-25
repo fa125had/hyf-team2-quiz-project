@@ -206,7 +206,8 @@ body {
     }
 
     .alert-container {
-      #alert {
+      #alert,
+      #alert-skip {
         text-transform: capitalize;
         color: rgba(225, 119, 13, 0.9);
         font-size: 1.1rem;
@@ -214,6 +215,14 @@ body {
         animation-duration: 2s;
       }
     }
+  }
+
+  // Score screen
+  #score-page {
+    width: 50%;
+  }
+  #score-table {
+    width: 50%;
   }
 }
 
