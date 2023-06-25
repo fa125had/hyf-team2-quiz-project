@@ -18,6 +18,7 @@ export const TIMER_ID = 'timer';
 export const POINTS_ID = 'points';
 export const SKIP_BUTTON_ID = 'skip-button';
 export const ALERT_IF_ANSWERED = 'alert';
+export const ALERT_IF_SKIP = 'alert-skip';
 export const SCORES_PAGE_ELEMENT = 'scores-page';
 export const FINALE_SCORE = 'finale-score';
 export const FINALE_GREET = 'greet';

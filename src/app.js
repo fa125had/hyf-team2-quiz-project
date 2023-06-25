@@ -5,6 +5,9 @@ import {
   POINTS_ID,
   ANSWERS_LIST_ID,
   ALERT_IF_ANSWERED,
+  SKIP_BUTTON_ID,
+  NEXT_QUESTION_BUTTON_ID,
+  ALERT_IF_SKIP,
 } from './constants.js';
 import { initQuestionPage } from './pages/questionPage.js';
 import { playerName } from './pages/welcomePage.js';
@@ -57,13 +60,17 @@ const loadApp = () => {
     if (SS.getItem('userPoints')) {
       dataSaver();
       document.getElementById(ALERT_IF_ANSWERED).style.display = 'block';
-    }
-    buttonDisable();
-  }
-  if (SS.getItem('alreadyAnswered') == '"skip"') {
-    if (SS.getItem('userPoints')) {
-      dataSaver();
+      document.getElementById(SKIP_BUTTON_ID).disabled = 'true';
       buttonDisable();
+      hideButton();
+    }
+  }
+  if (SS.getItem('alreadyAnswered') === 'skip') {
+    if (SS.getItem('userPoints')) {
+      document.getElementById(ALERT_IF_SKIP).style.display = 'block';
+      buttonDisable();
+      hideButton();
+      dataSaver();
     }
   }
 };
@@ -81,4 +88,13 @@ const buttonDisable = () => {
   for (let item of answersListElement.children) {
     item.style.pointerEvents = 'none';
   }
+};
+
+const hideButton = () => {
+  const showAnswerButton = document.getElementById(SKIP_BUTTON_ID);
+  showAnswerButton.style.display = 'none';
+  const nextQuestionButton = document.getElementsByClassName('navigation');
+  Array.from(nextQuestionButton).forEach(
+    (element) => (element.style.justifyContent = 'center')
+  );
 };
