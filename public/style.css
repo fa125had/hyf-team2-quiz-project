@@ -217,11 +217,11 @@ body {
   animation-duration: 2s;
 }
 #user-interface #scores-page {
-  width: 50%;
   text-align: center;
   align-self: center;
   font-family: 'Carter One', cursive;
   font-size: 1.2rem;
+  padding: 1rem;
 }
 #user-interface #scores-page #greet {
   animation: zoomInDown;
