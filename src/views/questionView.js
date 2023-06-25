@@ -5,6 +5,7 @@ import {
   POINTS_ID,
   SKIP_BUTTON_ID,
   ALERT_IF_ANSWERED,
+  ALERT_IF_SKIP,
 } from '../constants.js';
 import { playerName } from '../pages/welcomePage.js';
 import { points } from '../pages/questionPage.js';
@@ -29,6 +30,7 @@ export const createQuestionElement = (question, correctAnswer) => {
       <span id='${TIMER_ID}'>${timer}</span>
       <span class='alert-container'>
       <p id=${ALERT_IF_ANSWERED} style='display: none'>You already answered this question</p>
+      <p id=${ALERT_IF_SKIP} style='display: none'>You already skip this question</p>
     </span>
 
     </div>
@@ -47,6 +49,7 @@ export const createQuestionElement = (question, correctAnswer) => {
 
   const intervalID = setInterval(() => {
     if (timer === 0) {
+      document.getElementById(NEXT_QUESTION_BUTTON_ID).disabled = false;
       // Remove the timer from screen
       clearInterval(intervalID);
       document.getElementById('timer').style.display = 'none';

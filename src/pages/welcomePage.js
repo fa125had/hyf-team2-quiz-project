@@ -8,6 +8,7 @@ import { initQuestionPage } from './questionPage.js';
 import { createWelcomePageCover } from '../views/welcomeView.js';
 import { pointsSave } from './questionPage.js';
 import { positionSave } from './questionPage.js';
+import { answerSave } from './questionPage.js';
 
 export const initWelcomePage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -32,14 +33,28 @@ export const playerName = [];
 
 export const getName = () => {
   const inputValue = document.getElementById(WELCOME_PAGE_INPUT).value;
-  return playerName.push(inputValue);
+  if (inputValue) {
+    return playerName.push(inputValue);
+  }
 };
 
 // Need to do - stop loading if input is empty
 
 const startQuiz = () => {
-  initQuestionPage();
+  const inputValue = document.getElementById(WELCOME_PAGE_INPUT).value;
 
-  pointsSave();
-  positionSave();
+  if (inputValue === '') {
+    let alertMessage = document.createElement('div');
+    alertMessage.textContent = 'Please enter your name!';
+    alertMessage.style.color = 'red';
+    document
+      .getElementById(WELCOME_PAGE_INPUT)
+      .insertAdjacentElement('afterend', alertMessage);
+  } else {
+    initQuestionPage();
+
+    pointsSave();
+    positionSave();
+    answerSave();
+  }
 };
