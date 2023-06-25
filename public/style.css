@@ -103,7 +103,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding-inline: 3rem;
+  padding-inline: 2rem;
   text-align: center;
   overflow: hidden;
   overflow-y: auto;
@@ -156,10 +156,10 @@ body {
   .question-data
   .navigation
   #next-question-button {
-  width: 70%;
+  width: 8rem;
   padding: 0.5rem;
   font-family: 'Carter One', cursive;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background-color: rgb(183, 131, 58);
   color: #fff;
   border: none;
@@ -175,10 +175,10 @@ body {
   cursor: pointer;
 }
 #user-interface #question-element .question-data .navigation #skip-button {
-  width: 28%;
+  width: 8rem;
   padding: 0.5rem;
   font-family: 'Carter One', cursive;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background-color: rgb(183, 131, 58);
   color: #fff;
   border: none;
@@ -263,6 +263,7 @@ body {
   }
   #user-interface #question-element .question-data .navigation {
     width: 95%;
+    padding: 1rem;
   }
   #user-interface #question-element .question-image {
     width: unset;
@@ -320,10 +321,10 @@ body {
     .question-data
     .navigation
     #next-question-button {
-    width: 50%;
+    width: 8rem;
   }
   #user-interface #question-element .question-data .navigation #skip-button {
-    width: 30%;
+    width: 8rem;
   }
 }
 @media only screen and (max-width: 420px) {
@@ -350,11 +351,11 @@ body {
     .question-data
     .navigation
     #next-question-button {
-    width: 50%;
+    width: 7.5rem;
     font-size: 0.9rem;
   }
   #user-interface #question-element .question-data .navigation #skip-button {
-    width: 30%;
+    width: 7.5rem;
     font-size: 0.9rem;
   }
 }
