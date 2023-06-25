@@ -32,13 +32,16 @@ export const playerName = [];
 
 export const getName = () => {
   const inputValue = document.getElementById(WELCOME_PAGE_INPUT).value;
-  return playerName.push(inputValue);
+  if (inputValue) {
+    return playerName.push(inputValue);
+  }
 };
 
 // Need to do - stop loading if input is empty
 
 const startQuiz = () => {
   const inputValue = document.getElementById(WELCOME_PAGE_INPUT).value;
+
   if (inputValue === '') {
     let alertMessage = document.createElement('div');
     alertMessage.textContent = 'Please enter your name!';
