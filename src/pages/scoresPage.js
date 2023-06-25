@@ -31,7 +31,5 @@ const initScoresPage = () => {
     const winnerItem = winner(i);
     document.getElementById(RESULTS).appendChild(winnerItem);
   }
-  const tableSort = document.getElementById(RESULTS);
-
   SS.clear();
 };

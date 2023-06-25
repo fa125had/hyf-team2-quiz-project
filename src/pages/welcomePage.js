@@ -8,6 +8,7 @@ import { initQuestionPage } from './questionPage.js';
 import { createWelcomePageCover } from '../views/welcomeView.js';
 import { pointsSave } from './questionPage.js';
 import { positionSave } from './questionPage.js';
+import { answerSave } from './questionPage.js';
 
 export const initWelcomePage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -54,5 +55,6 @@ const startQuiz = () => {
 
     pointsSave();
     positionSave();
+    answerSave();
   }
 };
