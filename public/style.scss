@@ -219,11 +219,11 @@ body {
 
   // Score screen
   #scores-page {
-    width: 50%;
     text-align: center;
     align-self: center;
     font-family: 'Carter One', cursive;
     font-size: 1.2rem;
+    padding: 1rem;
 
     #greet {
       animation: zoomInDown;
